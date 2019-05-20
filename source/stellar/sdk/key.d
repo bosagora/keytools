@@ -15,7 +15,7 @@ module stellar.sdk.key;
 
 import stellar.sdk.crc16;
 
-import geod24.BitBlob;
+import geod24.bitblob;
 import base32;
 import libsodium;
 
