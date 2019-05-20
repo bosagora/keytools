@@ -1,0 +1,41 @@
+{
+    "name": "stellar-sdk",
+	"description": "SDK to interact with the Stellar cryptocurrency (XLM)",
+    "targetType": "none",
+
+    "subPackages": [
+        {
+            "name": "keytool",
+            "description": "A CLI tools to do common operations with Stellar keys",
+            "targetPath": "bin",
+            "targetName": "keytool",
+            "targetType": "executable",
+            "mainSourceFile": "tools/source/key/main.d",
+            "sourcePaths": [ "tools/source/key/" ],
+            "importPaths": [ "tools/source/key/" ],
+            "dependencies": {
+		        "stellar-sdk:sdk": "*"
+	        }
+        },
+        {
+            "name": "sdk",
+	        "description": "SDK to interact with the Stellar cryptocurrency (XLM)",
+            "targetName": "libstellarsdk",
+            "targetType": "library",
+            "dependencies": {
+		        "bitblob": "~>1.1.1",
+		        "libsodiumd": "~>0.0.1",
+                "base32": "~>0.1.0"
+	        }
+        }
+    ],
+
+	"license": "Apache 2.0",
+	"copyright": "Copyright © 2019, BOS Platform Foundation Korea",
+    "authors": [ "Mathias 'Geod24' Lang" ],
+
+    "dependencies": {
+        "stellar-sdk:keytool": "*",
+        "stellar-sdk:sdk": "*"
+	}
+}

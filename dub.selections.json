@@ -1,0 +1,8 @@
+{
+	"fileVersion": 1,
+	"versions": {
+		"base32": "0.1.0",
+		"bitblob": "1.1.1",
+		"libsodiumd": "0.0.1+1.0.7"
+	}
+}
