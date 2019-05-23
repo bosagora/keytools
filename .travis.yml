@@ -26,7 +26,14 @@ script:
   - dub test :keytool --compiler=${DC}
 
 # Latest version of DMD/GDC/LDC
-d:
-  - dmd
-#  - gdc # Too old, doesn't support bitblob
-  - ldc
+matrix:
+  include:
+    - d: dmd
+    - d: ldc
+    - addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gdc-9
+      env: SODIUM_VERSION=1.0.17 DC=gdc
