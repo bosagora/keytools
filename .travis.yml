@@ -3,23 +3,10 @@ language: d
 # Trusty is Travis' default but reached EOL 2019-04-30
 dist: xenial
 
-# I gave up trying to install libsodium
-sudo: required
-
-env:
-  - SODIUM_VERSION=1.0.17
-
-# No way to install the apt package, so...
-before_install:
-  - pushd $HOME
-  - wget https://github.com/jedisct1/libsodium/releases/download/${SODIUM_VERSION}/libsodium-${SODIUM_VERSION}.tar.gz
-  - tar xvfz libsodium-${SODIUM_VERSION}.tar.gz
-  - cd libsodium-${SODIUM_VERSION}
-  - ./configure
-  - make -j4
-  - sudo make install
-  - sudo ldconfig # Refresh cache
-  - popd
+addons:
+  apt:
+    packages:
+      - libsodium-dev
 
 script:
   - dub test :sdk --compiler=${DC}
@@ -35,5 +22,6 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
+            - libsodium-dev
             - gdc-9
-      env: SODIUM_VERSION=1.0.17 DC=gdc
+      env: DC=gdc
