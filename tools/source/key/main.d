@@ -75,7 +75,7 @@ int main (string[] args)
             scope ret = kp.address.verify(res);
             assert(ret == msg);
         }
-        writeln("Signed message: ", res);
+        writeln("Signed message: ", toHexString(res));
         break;
 
     case "verify":
@@ -94,7 +94,7 @@ int main (string[] args)
             writeln("Verification failed");
             return 1;
         }
-        writeln("Result: ", result);
+        writeln("Result: ", toHexString(result));
         if (result.all!((ubyte c) => char(c).isASCII))
             writeln("Result as string: ", cast(const(char)[])result);
         break;
