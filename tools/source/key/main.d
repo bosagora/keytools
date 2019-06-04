@@ -96,7 +96,7 @@ int main (string[] args)
         }
         writeln("Result: ", toHexString(result));
         if (result.all!((ubyte c) => char(c).isASCII))
-            writeln("Result as string: ", cast(const(char)[])result);
+            writeln("Result as string: \"", cast(const(char)[])result, '"');
         break;
 
     default:
