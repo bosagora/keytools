@@ -19,6 +19,7 @@ import std.algorithm;
 import std.ascii;
 import std.conv;
 import std.digest.crc;
+import std.encoding;
 import std.getopt;
 import std.range;
 import std.stdio;
@@ -95,8 +96,10 @@ int main (string[] args)
             return 1;
         }
         writeln("Result: ", toHexString(result));
-        if (result.all!((ubyte c) => char(c).isASCII))
-            writeln("Result as string: \"", cast(const(char)[])result, '"');
+
+        auto str = cast(const(char)[])result;
+        if (isValid(str))  // we don't want to emit binary data as a string
+            writeln("Result as string: ", str);
         break;
 
     default:
