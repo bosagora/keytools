@@ -1,6 +1,11 @@
 {
     "name": "stellar-sdk",
-	"description": "SDK to interact with the Stellar cryptocurrency (XLM)",
+    "description": "SDK to interact with the Stellar cryptocurrency (XLM)",
+
+    "license": "Apache 2.0",
+    "copyright": "Copyright © 2019-2021, BOSAGORA Foundation",
+    "authors": [ "Mathias 'Geod24' Lang" ],
+
     "targetType": "none",
 
     "subPackages": [
@@ -14,28 +19,24 @@
             "sourcePaths": [ "tools/source/key/" ],
             "importPaths": [ "tools/source/key/" ],
             "dependencies": {
-		        "stellar-sdk:sdk": "*"
-	        }
+		"stellar-sdk:sdk": "*"
+	    }
         },
         {
             "name": "sdk",
 	        "description": "SDK to interact with the Stellar cryptocurrency (XLM)",
-            "targetName": "libstellarsdk",
+            "targetName": "stellarsdk",
             "targetType": "library",
             "dependencies": {
-		        "bitblob": "~>1.1.1",
-		        "libsodiumd": "~>0.0.1",
+		"bitblob": "~>1.1.1",
+		"libsodiumd": "~>0.0.1",
                 "base32": "~>0.1.0"
-	        }
+	    }
         }
     ],
-
-	"license": "Apache 2.0",
-	"copyright": "Copyright © 2019, BOS Platform Foundation Korea",
-    "authors": [ "Mathias 'Geod24' Lang" ],
 
     "dependencies": {
         "stellar-sdk:keytool": "*",
         "stellar-sdk:sdk": "*"
-	}
+    }
 }
